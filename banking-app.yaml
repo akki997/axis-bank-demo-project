@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: banking-app-deployment
+  labels:
+    app: banking-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: banking-app-deployment
+  template:
+    metadata:
+      labels:
+        app: banking-app-deployment
+    spec:
+      containers:
+        - name: banking-app-deployment
+          image: akshaydocker14/banking:2
+          ports:
+            - containerPort: 9090
